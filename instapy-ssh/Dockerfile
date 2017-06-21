@@ -84,7 +84,9 @@ EXPOSE 22
 
 # Copying the your quickstart file into the container and setting directory
 COPY quickstart.py ./InstaPy
+
 WORKDIR /InstaPy
 
-CMD ["python3.5", "quickstart.py"]
-CMD ["/usr/sbin/sshd", "-D"]
+COPY entrypoint /bin/entrypoint
+RUN chmod +x /bin/entrypoint
+ENTRYPOINT ["entrypoint"]

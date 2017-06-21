@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+python3.5 /InstaPy/quickstart.py
+
+/usr/sbin/sshd -D
