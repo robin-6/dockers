@@ -1,0 +1,24 @@
+version: '2'
+services:
+  ssproxy:
+    container_name: ssk
+    restart: always
+    image: luxrck/shadowsocks-kcp:latest
+    ports:
+    - "6443:6443"
+    - "3121:3121"
+    - "3121:3121/udp"
+    environment:
+    - MANYUSER=No
+    - SS_SERVER=0.0.0.0
+    - SS_PORT=6443
+    - SS_PASSWORD=
+    - SS_METHOD=rc4-md5
+    - KCP_PORT=3121
+    - KCP_MODE=fast
+    - PORT=0
+    - KCP_MTU=1350
+    - KCP_SNDWND=512
+    - KCP_RCVWND=512
+    - KCP_DATASHARD=10
+    - KCP_PARITYSHARD=0
