@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sed -ir "s/(username *= *').*/\1os.environ.get("INS_NAME")'/g" example.py
+sed -ir "s/(login *= *').*/\1os.environ.get("INS_NAME")'/g" example.py
 sed -ir "s/(password *= *').*/\1os.environ.get("INS_PASSWD")'/g" example.py
 
 if [ "$PROXY" != "" ]; then 
