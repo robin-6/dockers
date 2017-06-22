@@ -13,7 +13,5 @@ if [ "$PROXY" != "" ]; then
   sed -i -r 's/(proxy *=).*/\1os.environ.get("PROXY"),/g' example.py
 fi
 
-date
-
 python example.py
 
