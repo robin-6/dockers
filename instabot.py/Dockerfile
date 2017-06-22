@@ -16,6 +16,7 @@ ENV COMMENTS_PER_DAY=100
 ENV FOLLOW_PER_DAY=500
 ENV UNFOLLOW_PER_DAY=200
 ENV LOG_MODE=0
+ENV TAGS=''
 
 # Clone our private GitHub Repository
 ADD https://raw.githubusercontent.com/uuaing/instabot.py/master/requirements.txt .
