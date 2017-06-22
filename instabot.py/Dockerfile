@@ -1,11 +1,15 @@
 FROM python:2.7.12-alpine
 
-RUN apk add --update --no-cache alpine-sdk bash git
-
 WORKDIR /usr/src/app
 
-ARG timezone=Etc/GMT-8
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apk update \
+    && apk upgrade \
+    && apk add ca-certificates \
+    && update-ca-certificates \
+    && apk add --update tzdata \
+    && apk add --update --no-cache alpine-sdk bash git
+    
+ENV TZ=Asia/Shanghai
 
 ENV LD_LIBRARY_PATH /usr/src/app
 ENV INS_NAME=''
@@ -20,7 +24,7 @@ ENV TAGS=''
 
 # Clone our private GitHub Repository
 ADD https://raw.githubusercontent.com/uuaing/instabot.py/master/requirements.txt .
-RUN git clone https://github.com/uuaing/instabot.py.git
+RUN git clone -b dev https://github.com/uuaing/instabot.py.git
 
 RUN pip install --no-cache-dir --requirement requirements.txt
 
