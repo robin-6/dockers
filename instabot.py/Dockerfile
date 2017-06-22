@@ -11,6 +11,11 @@ ENV LD_LIBRARY_PATH /usr/src/app
 ENV INS_NAME=''
 ENV INS_PASSWD=''
 ENV PROXY=''
+ENV LIKE_PER_DAY=888
+ENV COMMENTS_PER_DAY=100
+ENV FOLLOW_PER_DAY=500
+ENV UNFOLLOW_PER_DAY=200
+ENV LOG_MODE=0
 
 # Clone our private GitHub Repository
 ADD https://raw.githubusercontent.com/uuaing/instabot.py/master/requirements.txt .
