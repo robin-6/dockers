@@ -4,7 +4,7 @@ RUN apk add --update --no-cache alpine-sdk bash git
 
 WORKDIR /usr/src/app
 
-ARG timezone=Etc/UTC
+ARG timezone=Etc/GMT-8
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ENV LD_LIBRARY_PATH /usr/src/app
