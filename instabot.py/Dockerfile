@@ -11,20 +11,7 @@ RUN apk update \
     
 ENV TZ=Asia/Shanghai
 
-ENV LD_LIBRARY_PATH /usr/src/app
-ENV INS_NAME=''
-ENV INS_PASSWD=''
-ENV PROXY=''
-ENV LIKE_PER_DAY=888
-ENV COMMENTS_PER_DAY=100
-ENV FOLLOW_PER_DAY=500
-ENV UNFOLLOW_PER_DAY=200
-ENV LOG_MODE=0
-ENV TAGS=''
-
-# Clone our private GitHub Repository
 ADD https://raw.githubusercontent.com/uuaing/instabot.py/master/requirements.txt .
-RUN git clone -b dev https://github.com/uuaing/instabot.py.git
 
 RUN pip install --no-cache-dir --requirement requirements.txt
 
@@ -34,6 +21,4 @@ RUN apk del alpine-sdk\
 
 WORKDIR /usr/src/app/instabot.py
   
-COPY entrypoint.sh /bin/entrypoint.sh
-RUN chmod +x /bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+CMD['python','example.py']
