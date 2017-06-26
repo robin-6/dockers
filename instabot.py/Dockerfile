@@ -21,4 +21,4 @@ RUN apk del alpine-sdk\
 
 WORKDIR /usr/src/app/instabot.py
   
-CMD['python','example.py']
+CMD ['python','example.py']
