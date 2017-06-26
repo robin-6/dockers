@@ -18,7 +18,5 @@ RUN pip install --no-cache-dir --requirement requirements.txt
 #remove unused stuff
 RUN apk del alpine-sdk\
   && rm -rf /var/cache/apk/*
-
-WORKDIR /usr/src/app/instabot.py
   
-CMD ['python','example.py']
+CMD ["python", "/usr/src/app/instabot.pyexample.py"]
